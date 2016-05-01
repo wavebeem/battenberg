@@ -1,0 +1,25 @@
+{
+  "name": "battenberg",
+  "version": "0.0.1",
+  "description": "A friendly web GUI for building and developing JavaScript projects",
+  "main": "src/no-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wavebeem/battenberg.git"
+  },
+  "keywords": [
+    "tool",
+    "make",
+    "build",
+    "minify"
+  ],
+  "author": "Brian Mock <brian@mockbrian.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wavebeem/battenberg/issues"
+  },
+  "homepage": "https://github.com/wavebeem/battenberg#readme"
+}
