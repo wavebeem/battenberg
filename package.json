@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A friendly web GUI for building and developing JavaScript projects",
   "main": "src/no-api.js",
+  "bin": {
+    "battenberg": "bin/battenberg.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/wavebeem/battenberg/issues"
   },
-  "homepage": "https://github.com/wavebeem/battenberg#readme"
+  "homepage": "https://github.com/wavebeem/battenberg#readme",
+  "dependencies": {
+    "css-loader": "^0.23.1",
+    "express": "^4.13.4",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "style-loader": "^0.13.1"
+  }
 }
