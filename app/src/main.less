@@ -1,3 +1,6 @@
+@import "./mixins";
+@import "./variables";
+
 * {
   box-sizing: border-box;
 }
@@ -6,8 +9,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-
-  background: #fff;
-  color: #000;
   font-family: Helvetica, sans-serif;
+}
+
+html {
+  @soften: 30%;
+  .Checkerboard(
+    tint(@pink, @soften),
+    tint(@yellow, @soften),
+    300px
+  );
 }
