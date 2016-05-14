@@ -1,0 +1,26 @@
+@import "./variables";
+@import "./mixins";
+
+.AppMain {
+  .FlexColumn();
+  flex: 1 0 auto;
+}
+
+.MainActionBar {
+  .FlexRow();
+  flex: 0 0 auto;
+  border-bottom: 1px solid fade(@black, 20%);
+  padding: @header_padding;
+}
+
+.LogView {
+  flex: 1 0 auto;
+  background: @white;
+}
+
+.SecondaryActionBar {
+  .FlexRow();
+  flex: 0 0 auto;
+  border-top: 1px solid fade(@black, 20%);
+  padding: @header_padding;
+}
