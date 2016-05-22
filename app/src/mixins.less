@@ -11,3 +11,22 @@
 .FuzzyFade(@color) {
   box-shadow: 0 0 16px 8px @color;
 }
+
+.SimpleButton() {
+  font-weight: 200;
+  text-transform: uppercase;
+  border: 0;
+  background: transparent;
+  border: 1px solid fade(black, 10%);
+  border-radius: 2px;
+  padding: 0 1em;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover, &:active {
+    background: fade(black, 10%);
+  }
+}

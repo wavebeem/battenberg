@@ -11,38 +11,24 @@
 
 .AppIcon {
   flex: 0 0 auto;
+  margin-right: 1em;
 }
 
 .SettingsButton {
+  .SimpleButton();
   flex: 0 0 auto;
-  font-weight: 200;
-  text-transform: uppercase;
-  border: 0;
-  background: transparent;
-  border: 1px solid fade(black, 10%);
-  border-radius: 2px;
-  padding: 0 1em;
-  cursor: pointer;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:hover, &:active {
-    background: fade(black, 10%);
-  }
 }
 
 .AppTitle {
   font-weight: bold;
   flex: 1 1 auto;
-  margin-left: 1em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .AppSubtitle {
+  font-family: @font_mono;
   font-weight: normal;
   opacity: 0.6;
 }
