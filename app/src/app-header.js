@@ -1,3 +1,5 @@
+'use strict';
+
 require('./app-header.less');
 const R = require('react').createElement;
 const T = require('./translation.json');

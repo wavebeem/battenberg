@@ -8,18 +8,23 @@
 
 .MainActionBar {
   .FlexRow();
+  .FuzzyFade(@white);
+  z-index: @z_index_toolbar;
   flex: 0 0 auto;
   border-bottom: 1px solid fade(@black, 20%);
   padding: @header_padding;
 }
 
 .LogView {
+  z-index: @z_index_logs;
   flex: 1 0 auto;
   background: @white;
 }
 
 .SecondaryActionBar {
   .FlexRow();
+  .FuzzyFade(@white);
+  z-index: @z_index_toolbar;
   flex: 0 0 auto;
   border-top: 1px solid fade(@black, 20%);
   padding: @header_padding;

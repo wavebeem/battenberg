@@ -1,3 +1,5 @@
+'use strict';
+
 require('./log-view.less')
 const R = require('react').createElement;
 
