@@ -11,6 +11,7 @@ const primaryReducer = require('./primary-reducer');
 const App = require('./app');
 
 const initialState = Object.freeze({
+  logs: [],
   subtitle: '',
   settingsVisible: false,
 });
@@ -36,7 +37,19 @@ const theProvider = React.createElement(Provider, {store}, theBattenberg);
 fetch('/cwd')
   .then(resp => resp.json())
   .then(value => {
-    store.dispatch({type:'UPDATE_SUBTITLE', value})
+    store.dispatch({
+      type:'UPDATE_SUBTITLE',
+      value
+    });
+  });
+
+fetch('/lint?path=src')
+  .then(resp => resp.json())
+  .then(value => {
+    store.dispatch({
+      type: 'DISPLAY_LINT_RESULTS',
+      value
+    });
   });
 
 function start() {

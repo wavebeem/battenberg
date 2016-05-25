@@ -10,7 +10,7 @@ const AppSettings = require('./app-settings');
 const primaryReducer = require('./primary-reducer');
 
 function App(props) {
-  const dispatch = props.dispatch;
+  const {logs, dispatch, subtitle} = props;
   const onShowSettings = function() {
     dispatch({type: 'SHOW_SETTINGS'});
   };
@@ -18,8 +18,8 @@ function App(props) {
     dispatch({type: 'HIDE_SETTINGS'});
   };
   return R('div', {className: 'App'},
-    R(AppHeader, {onShowSettings, subtitle: props.subtitle}),
-    R(AppMain, {}),
+    R(AppHeader, {onShowSettings, subtitle}),
+    R(AppMain, {logs}),
     R(AppSettings, {isVisible: props.settingsVisible, onHideSettings})
   );
 }

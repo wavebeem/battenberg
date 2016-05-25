@@ -29,7 +29,8 @@ const cli = new eslint.CLIEngine({
     'object-curly-spacing': [WARN, 'never'],
     'space-infix-ops': WARN,
     'space-unary-ops': [WARN, {words: true, nonwords: false}],
-    'spaced-comment': [WARN, 'always']
+    'spaced-comment': [WARN, 'always'],
+    'no-unused-vars': [WARN, {argsIgnorePattern: '^_'}]
   }
 });
 
