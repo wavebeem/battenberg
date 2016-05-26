@@ -12,7 +12,7 @@ const App = require('./app');
 
 const initialState = Object.freeze({
   logs: [],
-  subtitle: '',
+  folder: '',
   settingsVisible: false,
 });
 
@@ -38,7 +38,7 @@ fetch('/cwd')
   .then(resp => resp.json())
   .then(value => {
     store.dispatch({
-      type:'UPDATE_SUBTITLE',
+      type:'UPDATE_FOLDER',
       value
     });
   });
