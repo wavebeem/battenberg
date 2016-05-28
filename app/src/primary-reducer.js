@@ -29,6 +29,7 @@ function getSpecifics(folder, file, message) {
 }
 
 const table = {
+  UPDATE_LOADING: (state, action) => ({loading: action.value}),
   UPDATE_FOLDER: (state, action) => ({folder: action.value}),
   SHOW_SETTINGS: (state, action) => ({settingsVisible: true}),
   HIDE_SETTINGS: (state, action) => ({settingsVisible: false}),

@@ -1,5 +1,6 @@
 require('./lint-file-specific-log.less');
 const R = require('react').createElement;
+const LineNumber = require('./line-number');
 
 function arrow(n) {
   let s = '';
@@ -22,7 +23,10 @@ function LintFileSpecificLog(props) {
     source
   } = log;
   return R('div', {className: 'LogEntry'},
-    R('pre', {class: 'LintFileName'}, file, ' (line ', line, ')'),
+    R('pre', {class: 'LintFileName'},
+      file,
+      LineNumber({line})
+    ),
     R('div', {className: 'LintMessage'}, message),
     R('pre', {className: 'SourceCodeContext'},
       source,

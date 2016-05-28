@@ -11,6 +11,7 @@ const primaryReducer = require('./primary-reducer');
 const App = require('./app');
 
 const initialState = Object.freeze({
+  loading: false,
   logs: [],
   folder: '',
   settingsVisible: false,
@@ -43,13 +44,25 @@ fetch('/cwd')
     });
   });
 
-fetch('/lint?path=src')
+store.dispatch({
+  type: 'UPDATE_LOADING',
+  value: true
+})
+
+// fetch('/lint?path=src')
+fetch('/lint?path=../node_modules/lodash')
   .then(resp => resp.json())
   .then(value => {
     store.dispatch({
       type: 'DISPLAY_LINT_RESULTS',
       value
     });
+  })
+  .then(_ => {
+    store.dispatch({
+      type: 'UPDATE_LOADING',
+      value: false
+    })
   });
 
 function start() {

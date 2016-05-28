@@ -1,0 +1,32 @@
+@import "./variables";
+
+.LoadingSpinner {
+  @size: 1em;
+  @color1: @black;
+  @color2: transparent;
+  @timing: cubic-bezier(0.72, 0.3, 0.82, 0.54);
+  // @timing: linear;
+
+  display: inline-block;
+  border: 3px solid @color1;
+  border-bottom-color: @color2;
+  border-right-color: @color2;
+  border-radius: 50%;
+  width: @size;
+  height: @size;
+  animation: loading-spinner 1s infinite @timing;
+  transition: 500ms opacity;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
