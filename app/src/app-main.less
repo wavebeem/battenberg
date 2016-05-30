@@ -4,19 +4,10 @@
 .AppMain {
   .FlexColumn();
   flex: 1 0 auto;
-}
-
-.MainActionBar {
-  .FlexRow();
-  z-index: @z_index_toolbar;
-  flex: 0 0 auto;
-  // border-bottom: 1px solid fade(@black, 20%);
-  box-shadow: 0 1px 0 0 fade(@black, 20%);
-  padding: @header_padding;
+  z-index: @z_index_logs;
 }
 
 .LogView {
-  z-index: @z_index_logs;
   flex: 1 0 auto;
   background: @white;
 }
@@ -25,7 +16,7 @@
   .FlexRow();
   z-index: @z_index_toolbar;
   flex: 0 0 auto;
-  // border-top: 1px solid fade(@black, 20%);
-  box-shadow: 0 -1px 0 0 fade(@black, 20%);
+  border-top: 1px solid fade(@black, 20%);
+  box-shadow: @bar_shadow;
   padding: @header_padding;
 }

@@ -30,7 +30,7 @@ function enhancer() {
 }
 
 const store = createStore(primaryReducer, initialState, enhancer());
-const theBattenberg = React.createElement(App, {});
+const theBattenberg = React.createElement(App, {store});
 const theProvider = React.createElement(Provider, {store}, theBattenberg);
 
 // fetch('something...')
@@ -42,27 +42,6 @@ fetch('/cwd')
       type:'UPDATE_FOLDER',
       value
     });
-  });
-
-store.dispatch({
-  type: 'UPDATE_LOADING',
-  value: true
-})
-
-// fetch('/lint?path=src')
-fetch('/lint?path=../node_modules/lodash')
-  .then(resp => resp.json())
-  .then(value => {
-    store.dispatch({
-      type: 'DISPLAY_LINT_RESULTS',
-      value
-    });
-  })
-  .then(_ => {
-    store.dispatch({
-      type: 'UPDATE_LOADING',
-      value: false
-    })
   });
 
 function start() {

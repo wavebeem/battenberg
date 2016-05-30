@@ -12,6 +12,11 @@ const cli = new eslint.CLIEngine({
   envs: ['browser', 'mocha', 'node', 'es6'],
   useEslintrc: false,
   extends: 'eslint:recommended',
+  ignorePattern: [
+    'node_modules',
+    'bower_components',
+    'dist'
+  ],
   // Eventually let's enable it to fix problems automatically! :D
   // fix: true,
   rules: {
