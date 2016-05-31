@@ -15,6 +15,7 @@ const cli = new eslint.CLIEngine({
   ignorePattern: [
     'node_modules',
     'bower_components',
+    'build',
     'dist'
   ],
   // Eventually let's enable it to fix problems automatically! :D
