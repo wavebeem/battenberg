@@ -1,4 +1,6 @@
 {
   "APP_NAME": "Battenberg",
-  "SETTINGS": "Settings"
+  "SETTINGS": "Settings",
+  "SETTINGS_HEADER_FOLDER": "Folder",
+  "SETTINGS_DESCRIPTION_FOLDER": "The root folder of the project you want to work with right now. The special character '~' is not currently supported, so please use '/Users/myname/blah' instead of '~/blah'."
 }

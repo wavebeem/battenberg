@@ -13,7 +13,7 @@
   transition: 300ms transform ease-in;
 
   &.hidden {
-    transform: translate(0, -120vh);
+    transform: translate(0, -100vh);
   }
 }
 
@@ -30,5 +30,29 @@
 
   button {
     .SimpleButton();
+    display: block;
+  }
+}
+
+.AppSettingGroup {
+  padding-bottom: 10px;
+
+  h1 {
+    font-size: 110%;
+    margin: 0;
+  }
+
+  p {
+    font-size: inherit;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 3px 5px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 2px solid fade(black, 10%);
+    border-radius: 4px;
   }
 }

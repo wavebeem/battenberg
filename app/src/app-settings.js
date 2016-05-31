@@ -1,6 +1,7 @@
 'use strict';
 
 require('./app-settings.less');
+const T = require('./translation.json');
 const css = require('./css');
 const R = require('react').createElement;
 
@@ -12,11 +13,15 @@ function AppSettings(props) {
   });
   return R('div', {className},
     R('div', {className: 'AppSettingsContent'},
-      R('input', {
-        type: 'text',
-        value: folder,
-        onChange: event => updateFolder(event.target.value)
-      }),
+      R('div', {className: 'AppSettingGroup'},
+        R('h1', {}, T.SETTINGS_HEADER_FOLDER),
+        R('p', {}, T.SETTINGS_DESCRIPTION_FOLDER),
+        R('input', {
+          type: 'text',
+          value: folder,
+          onChange: event => updateFolder(event.target.value)
+        })
+      ),
       R('button', {onClick: props.onHideSettings}, 'Close')
     )
   );
