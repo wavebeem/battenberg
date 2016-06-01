@@ -13,16 +13,24 @@ function AppSettings(props) {
   });
   return R('div', {className},
     R('div', {className: 'AppSettingsContent'},
+      R('button', {
+        className: 'AppSettingsButton',
+        onClick: props.onHideSettings
+      }, T.CLOSE),
       R('div', {className: 'AppSettingGroup'},
-        R('h1', {}, T.SETTINGS_HEADER_FOLDER),
-        R('p', {}, T.SETTINGS_DESCRIPTION_FOLDER),
+        R('div', {className: 'AppSettingHeader'},
+          T.SETTINGS_HEADER_FOLDER
+        ),
+        R('div', {className: 'AppSettingDescription'},
+          T.SETTINGS_DESCRIPTION_FOLDER
+        ),
         R('input', {
+          className: 'AppSettingInput',
           type: 'text',
           value: folder,
           onChange: event => updateFolder(event.target.value)
         })
-      ),
-      R('button', {onClick: props.onHideSettings}, 'Close')
+      )
     )
   );
 }

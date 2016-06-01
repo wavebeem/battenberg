@@ -26,3 +26,33 @@
     background: fade(black, 10%);
   }
 }
+
+
+.SettingsButton() {
+  .SimpleButton();
+  color: @white;
+  font-size: 120%;
+  border-width: 2px;
+  border-color: fade(white, 10%);
+
+  &:hover, &:active {
+    background: fade(white, 10%);
+  }
+}
+
+.SettingsInput() {
+  background: @gray;
+  color: @white;
+  font-weight: 200;
+  border: 2px solid fade(white, 30%);
+  display: block;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 3px 5px;
+  border-radius: 4px;
+
+  &:focus {
+    outline: 0;
+  }
+}
