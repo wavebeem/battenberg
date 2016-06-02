@@ -1,9 +1,36 @@
 @import "./variables";
 
 .LintMessage {
-  margin: 20px 0;
+  margin-top: 10px;
+  margin-left: -10px;
+  padding-left: 10px;
+  box-shadow: inset 3px 0 black;
+  font-size: 120%;
+  font-weight: bold;
 }
 
 .Arrow {
   color: @red;
+}
+
+.LintFileName {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 1px;
+  border-bottom: 1px dotted currentColor;
+  font-family: @font_mono;
+  opacity: 0.7;
+  font-size: 90%;
+}
+
+.Metadata {
+  display: block;
+  margin: 5px 0;
+  font-size: 85%;
+  opacity: 0.5;
+}
+
+.SourceCodeContext {
+  margin-top: 10px;
 }
