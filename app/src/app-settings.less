@@ -12,10 +12,13 @@
   right: 0;
   height: 100vh;
   padding: 10px;
-  transition: 300ms transform ease-in;
+  transition:
+    300ms transform ease-in,
+    300ms opacity ease-in;
 
   &.hidden {
     transform: translate(0, -100vh);
+    opacity: 0;
   }
 }
 
