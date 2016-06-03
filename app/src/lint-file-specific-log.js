@@ -23,9 +23,22 @@ function LintFileSpecificLog(props) {
   } = log;
   return R('div', {className: 'LogEntry'},
     R('div', {className: 'LintMessage'}, message),
-    R('div', {className: 'LintFileName'}, file),
-    R('div', {className: 'Metadata'}, 'line: ', line),
-    R('div', {className: 'Metadata'}, 'eslint: ', ruleId),
+    R('table', {className: 'Metadata'},
+      R('tbody', {},
+        R('tr', {},
+          R('th', {}, 'file'),
+          R('td', {}, file)
+        ),
+        R('tr', {},
+          R('th', {}, 'line'),
+          R('td', {}, line)
+        ),
+        R('tr', {},
+          R('th', {}, 'eslint'),
+          R('td', {}, ruleId)
+        )
+      )
+    ),
     R('pre', {className: 'SourceCodeContext'},
       source, '\n',
       R('span', {className: 'Arrow'}, arrow(column))

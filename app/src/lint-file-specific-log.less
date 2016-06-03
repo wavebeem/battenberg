@@ -13,21 +13,23 @@
   color: @red;
 }
 
-.LintFileName {
-  display: inline-block;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding-bottom: 1px;
-  font-family: @font_mono;
-  opacity: 0.7;
-  font-size: 90%;
-}
-
 .Metadata {
   display: block;
   margin: 5px 0;
   font-size: 85%;
   opacity: 0.5;
+  margin-left: -10px;
+  padding-left: 10px;
+  margin-top: 1px;
+  border-left: 3px solid currentColor;
+
+  th {
+    text-align: right;
+    text-decoration: underline;
+    font-weight: normal;
+    font-variant: small-caps;
+    padding-right: 5px;
+  }
 }
 
 .SourceCodeContext {
