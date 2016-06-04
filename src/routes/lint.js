@@ -16,6 +16,7 @@ const cli = new eslint.CLIEngine({
     'node_modules',
     'bower_components',
     'build',
+    'tmp',
     'dist'
   ],
   // Eventually let's enable it to fix problems automatically! :D
