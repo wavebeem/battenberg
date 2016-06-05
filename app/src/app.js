@@ -9,10 +9,10 @@ const AppMain = require('./app-main');
 const AppSettings = require('./app-settings');
 const primaryReducer = require('./primary-reducer');
 
-function updateFolder_(store, folder) {
+function updateSettings_(store, settings) {
   store.dispatch({
-    type: 'UPDATE_FOLDER',
-    value: folder
+    type: 'UPDATE_SETTINGS',
+    value: settings
   });
 }
 
@@ -41,15 +41,16 @@ function runLint_(store, folder) {
 
 function App(props) {
   const {
+    settings,
     logs,
     dispatch,
-    folder,
     loading,
     store,
     settingsVisible
   } = props;
+  const {folder} = settings;
   const runLint = runLint_.bind(null, store, folder);
-  const updateFolder = updateFolder_.bind(null, store);
+  const updateSettings = updateSettings_.bind(null, store);
   const onShowSettings = function() {
     dispatch({type: 'SHOW_SETTINGS'});
   };
@@ -61,9 +62,9 @@ function App(props) {
     R(AppMain, {logs, loading, runLint}),
     R(AppSettings, {
       isVisible: settingsVisible,
-      folder,
+      settings,
       onHideSettings,
-      updateFolder
+      updateSettings
     })
   );
 }

@@ -11,9 +11,12 @@ const primaryReducer = require('./primary-reducer');
 const App = require('./app');
 
 const initialState = Object.freeze({
+  settings: {
+    replace: true,
+    folder: ''
+  },
   loading: false,
   logs: [],
-  folder: '',
   settingsVisible: false,
 });
 
@@ -37,10 +40,10 @@ const theProvider = React.createElement(Provider, {store}, theBattenberg);
 
 fetch('/cwd')
   .then(resp => resp.json())
-  .then(value => {
+  .then(folder => {
     store.dispatch({
-      type:'UPDATE_FOLDER',
-      value
+      type:'UPDATE_SETTINGS',
+      value: {folder}
     });
   });
 
