@@ -10,8 +10,8 @@ function AppMain(props) {
   const {logs, loading, runLint} = props;
   return R('main', {className: 'AppMain'},
     R(MainActionBar, {loading, runLint}),
-    R(LogView, {logs}),
-    R('div', {className: 'SecondaryActionBar'}, 'Secondary Actions')
+    R(LogView, {logs})
+    // R('div', {className: 'SecondaryActionBar'}, 'Secondary Actions')
   );
 }
 
