@@ -29,7 +29,8 @@
   "homepage": "https://github.com/wavebeem/battenberg#readme",
   "dependencies": {
     "eslint": "^2.10.2",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "open-in-editor": "^1.2.0"
   },
   "devDependencies": {
     "react": "^15.0.2",

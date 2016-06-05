@@ -15,7 +15,15 @@ function ruleUrl(ruleId) {
 }
 
 function openUrl(file, line, column) {
-  return '/open?file=' + [file, line, column].join(':');
+  return '/open?path=' + [file, line, column].join(':');
+}
+
+function openUrlHandler(file, line, column, event) {
+  const url = openUrl(file, line, column);
+  const method = 'POST';
+  const req = new Request(url, {method});
+  fetch(req);
+  event.preventDefault();
 }
 
 function LintFileSpecificLog(props) {
@@ -36,7 +44,12 @@ function LintFileSpecificLog(props) {
         R('tr', {},
           R('th', {}, 'file'),
           R('td', {},
-            R('a', {target: '_blank', href: openUrl(file, line, column)},
+            R('a',
+              {
+                target: '_blank',
+                href: openUrl(file, line, column),
+                onClick: openUrlHandler.bind(null, file, line, column)
+              },
               file, ':', line, ':', column
             )
           )
