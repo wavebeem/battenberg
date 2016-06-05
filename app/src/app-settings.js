@@ -24,7 +24,6 @@ function checkboxSetting(props, header, description, name) {
   const {settings, updateSettings} = props;
   return R('div', {className: 'AppSettingGroup'},
     R('div', {className: 'AppSettingHeader'}, header),
-    // R('div', {className: 'AppSettingDescription'}, description),
     R('label', {className: 'AppSettingCheckboxLabel'},
       R('input', {
         className: 'AppSettingCheckbox',
@@ -48,8 +47,8 @@ function getSettings(props) {
     ),
     checkboxSetting(
       props,
-      'Replace',
-      'Should it replace?',
+      T.SETTINGS_HEADER_REPLACE,
+      T.SETTINGS_DESCRIPTION_REPLACE,
       'replace'
     )
   ];

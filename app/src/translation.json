@@ -2,6 +2,8 @@
   "APP_NAME": "Battenberg",
   "CLOSE": "Close",
   "SETTINGS": "Settings",
+  "SETTINGS_HEADER_REPLACE": "Replace logs",
+  "SETTINGS_DESCRIPTION_REPLACE": "Should logs be replaced or appended to when new logs appear",
   "SETTINGS_HEADER_FOLDER": "Folder",
   "SETTINGS_DESCRIPTION_FOLDER": "The root folder of the project you want to work with right now. The special character '~' is not currently supported, so please use '/Users/myname/blah' instead of '~/blah'."
 }
