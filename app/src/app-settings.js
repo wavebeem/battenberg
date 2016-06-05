@@ -28,10 +28,10 @@ function checkboxSetting(props, header, description, name) {
     R('label', {className: 'AppSettingCheckboxLabel'},
       R('input', {
         className: 'AppSettingCheckbox',
-        value: settings[name],
+        checked: settings[name],
         type: 'checkbox',
         onChange: event =>
-          updateSettings({[name]: event.target.value})
+          updateSettings({[name]: event.target.checked})
       }),
       description
     )
