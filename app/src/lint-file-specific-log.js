@@ -10,6 +10,14 @@ function arrow(n) {
   return s;
 }
 
+function ruleUrl(ruleId) {
+  return 'http://eslint.org/docs/rules/' + ruleId;
+}
+
+function openUrl(file, line, column) {
+  return '/open?file=' + [file, line, column].join(':');
+}
+
 function LintFileSpecificLog(props) {
   const {log} = props;
   const {
@@ -27,15 +35,19 @@ function LintFileSpecificLog(props) {
       R('tbody', {},
         R('tr', {},
           R('th', {}, 'file'),
-          R('td', {}, file)
-        ),
-        R('tr', {},
-          R('th', {}, 'line'),
-          R('td', {}, line)
+          R('td', {},
+            R('a', {target: '_blank', href: openUrl(file, line, column)},
+              file, ':', line, ':', column
+            )
+          )
         ),
         R('tr', {},
           R('th', {}, 'eslint'),
-          R('td', {}, ruleId)
+          R('td', {},
+            R('a', {target: '_blank', href: ruleUrl(ruleId)},
+              ruleId
+            )
+          )
         )
       )
     ),

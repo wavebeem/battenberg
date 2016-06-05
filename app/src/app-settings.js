@@ -37,23 +37,6 @@ function checkboxSetting(props, header, description, name) {
   );
 }
 
-function getSettings(props) {
-  return [
-    textSetting(
-      props,
-      T.SETTINGS_HEADER_FOLDER,
-      T.SETTINGS_DESCRIPTION_FOLDER,
-      'folder'
-    ),
-    checkboxSetting(
-      props,
-      T.SETTINGS_HEADER_REPLACE,
-      T.SETTINGS_DESCRIPTION_REPLACE,
-      'replace'
-    )
-  ];
-}
-
 function AppSettings(props) {
   const className = css({
     AppSettings: true,
@@ -68,17 +51,18 @@ function AppSettings(props) {
       }, T.CLOSE)
     ),
     R('div', {className: 'AppSettingsContent'},
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props),
-      getSettings(props)
+      textSetting(
+        props,
+        T.SETTINGS_HEADER_FOLDER,
+        T.SETTINGS_DESCRIPTION_FOLDER,
+        'folder'
+      ),
+      checkboxSetting(
+        props,
+        T.SETTINGS_HEADER_REPLACE,
+        T.SETTINGS_DESCRIPTION_REPLACE,
+        'replace'
+      )
     )
   );
 }
