@@ -9,5 +9,12 @@
   right: 0;
   display: flex;
   flex-flow: column nowrap;
-  background: @header_bg;
+
+  &.ThemeDark {
+    background: @dark_header_bg;
+  }
+
+  &.ThemeLight {
+    background: @light_header_bg;
+  }
 }

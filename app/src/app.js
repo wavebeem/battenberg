@@ -2,12 +2,15 @@
 
 require('./app.less');
 require('whatwg-fetch');
+
 const R = require('react').createElement;
 const connect = require('react-redux').connect;
+
 const AppHeader = require('./app-header');
 const AppMain = require('./app-main');
 const AppSettings = require('./app-settings');
 const primaryReducer = require('./primary-reducer');
+const css = require('./css');
 
 function updateSettings_(store, settings) {
   store.dispatch({
@@ -48,7 +51,7 @@ function App(props) {
     store,
     settingsVisible
   } = props;
-  const {folder} = settings;
+  const {folder, theme} = settings;
   const runLint = runLint_.bind(null, store, folder);
   const updateSettings = updateSettings_.bind(null, store);
   const onShowSettings = function() {
@@ -57,7 +60,12 @@ function App(props) {
   const onHideSettings = function() {
     dispatch({type: 'HIDE_SETTINGS'});
   };
-  return R('div', {className: 'App'},
+  const className = css({
+    App: true,
+    ThemeDark: theme === 'dark',
+    ThemeLight: theme === 'light' || !theme,
+  });
+  return R('div', {className},
     R(AppHeader, {onShowSettings, folder}),
     R(AppMain, {logs, loading, runLint}),
     R(AppSettings, {

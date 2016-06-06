@@ -3,10 +3,19 @@
 
 .AppHeader {
   .FlexRow();
+
   z-index: @z_index_header;
-  background: @header_bg;
-  color: @header_fg;
   padding: @header_padding;
+
+  .ThemeLight & {
+    background: @light_header_bg;
+    color: @light_header_fg;
+  }
+
+  .ThemeDark & {
+    background: @dark_header_bg;
+    color: @dark_header_fg;
+  }
 }
 
 .AppIcon {

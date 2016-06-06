@@ -37,9 +37,27 @@ function checkboxSetting(props, header, description, name) {
   );
 }
 
+function dropdownSetting(props, header, description, name, options) {
+  const {settings, updateSettings} = props;
+  const value = settings[name];
+  const onChange = (event) => {
+    updateSettings({[name]: event.target.value});
+  };
+  return R('div', {className: 'AppSettingGroup'},
+    R('div', {className: 'AppSettingHeader'}, header),
+    R('div', {className: 'AppSettingDescription'}, description),
+    R('select', {className: 'AppSettingDropdown', onChange, value},
+      options.map(x =>
+        R('option', {key: x.value, value: x.value}, x.name)
+      )
+    )
+  );
+}
+
 function AppSettings(props) {
   const className = css({
     AppSettings: true,
+    ThemeDark: true,
     hidden: !props.isVisible
   });
   return R('div', {className},
@@ -62,6 +80,16 @@ function AppSettings(props) {
         T.SETTINGS_HEADER_REPLACE,
         T.SETTINGS_DESCRIPTION_REPLACE,
         'replace'
+      ),
+      dropdownSetting(
+        props,
+        'Theme',
+        'Which theme you like?',
+        'theme',
+        [
+          {value: 'dark', name: 'Dark'},
+          {value: 'light', name: 'Light'}
+        ]
       )
     )
   );

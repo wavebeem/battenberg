@@ -1,14 +1,33 @@
 @import "./variables";
 
 .LogView {
+  flex: 1 0 auto;
   overflow-y: auto;
   height: 0;
+
+  .ThemeLight & {
+    background: @light_gray;
+    color: @black;
+  }
+
+  .ThemeDark & {
+    background: @darkest_gray;
+    color: @white;
+  }
 }
 
 .LogEntry {
   margin: 0;
   padding: 10px;
-  border-bottom: 1px solid fade(black, 10%);
   overflow-x: auto;
   white-space: pre;
+  border-bottom: 1px solid transparent;
+
+  .ThemeDark & {
+    border-color: fade(white, 10%);
+  }
+
+  .ThemeLight & {
+    border-color: fade(black, 10%);
+  }
 }

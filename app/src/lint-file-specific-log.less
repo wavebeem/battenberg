@@ -10,7 +10,13 @@
 }
 
 .Arrow {
-  color: @red;
+  .ThemeDark & {
+    color: @light_red;
+  }
+
+  .ThemeLight & {
+    color: @red;
+  }
 }
 
 .Metadata {

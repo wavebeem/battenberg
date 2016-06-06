@@ -1,3 +1,5 @@
+@import "./variables";
+
 .FlexRow() {
   display: flex;
   flex-flow: row nowrap;
@@ -13,7 +15,7 @@
   text-transform: uppercase;
   border: 0;
   background: transparent;
-  border: 1px solid fade(black, 10%);
+  border: 1px solid transparent;
   border-radius: 2px;
   padding: 0 1em;
   cursor: pointer;
@@ -22,8 +24,24 @@
     outline: 0;
   }
 
-  &:hover, &:active {
-    background: fade(black, 10%);
+  .ThemeLight & {
+    color: @black;
+    border-color: fade(black, 10%);
+
+    &:hover,
+    &:active {
+      background: fade(black, 10%);
+    }
+  }
+
+  .ThemeDark & {
+    color: @white;
+    border-color: fade(white, 10%);
+
+    &:hover,
+    &:active {
+      background: fade(white, 10%);
+    }
   }
 }
 
