@@ -83,8 +83,8 @@ function AppSettings(props) {
       ),
       dropdownSetting(
         props,
-        'Theme',
-        'Which theme you like?',
+        T.SETTINGS_HEADER_THEME,
+        T.SETTINGS_DESCRIPTION_THEME,
         'theme',
         [
           {value: 'dark', name: 'Dark'},
