@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const C = require('./constants');
 const routesIndex = require('./routes/index');
@@ -15,9 +16,9 @@ function greet() {
 }
 
 app.use(express.static(C.APP_PATH));
+app.use(bodyParser.json());
 app.get('/', routesIndex);
 app.get('/cwd', routesCwd);
-app.get('/lint', routesLint);
-app.get('/open', routesOpen);
+app.post('/lint', routesLint);
 app.post('/open', routesOpen);
 app.listen(C.PORT, C.HOST, greet);

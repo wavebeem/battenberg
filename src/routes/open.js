@@ -11,7 +11,8 @@ function onEditorConfigureFailure() {
 }
 
 function open(req, res) {
-  const path = req.query.path;
+  // TODO: Error if path is missing
+  const path = req.body.path;
   editor.open(path)
     .then(() => { res.json(true); })
     .catch(() => { res.json(false); });

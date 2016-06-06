@@ -7,6 +7,7 @@ const ReactDOM = require('react-dom');
 const Provider = require('react-redux').Provider;
 const createStore = require('redux').createStore;
 
+const backend = require('./backend');
 const primaryReducer = require('./primary-reducer');
 const App = require('./app');
 
@@ -40,8 +41,7 @@ const theProvider = React.createElement(Provider, {store}, theBattenberg);
 
 // fetch('something...')
 
-fetch('/cwd')
-  .then(resp => resp.json())
+backend.cwd()
   .then(folder => {
     store.dispatch({
       type:'UPDATE_SETTINGS',

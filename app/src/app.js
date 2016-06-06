@@ -6,6 +6,7 @@ require('whatwg-fetch');
 const R = require('react').createElement;
 const connect = require('react-redux').connect;
 
+const backend = require('./backend');
 const AppHeader = require('./app-header');
 const AppMain = require('./app-main');
 const AppSettings = require('./app-settings');
@@ -25,21 +26,17 @@ function runLint_(store, folder) {
     value: true
   })
 
-  // TODO: Escape the folder
-  fetch('/lint?path=' + folder)
-    .then(resp => resp.json())
+  backend.lint(folder)
     .then(value => {
       store.dispatch({
         type: 'DISPLAY_LINT_RESULTS',
         value
       });
-    })
-    .then(_ => {
       store.dispatch({
         type: 'UPDATE_LOADING',
         value: false
       })
-    });
+    })
 }
 
 function App(props) {

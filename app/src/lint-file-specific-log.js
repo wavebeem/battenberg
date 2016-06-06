@@ -1,6 +1,8 @@
 require('./lint-file-specific-log.less');
 const R = require('react').createElement;
 
+const backend = require('./backend');
+
 function arrow(n) {
   let s = '';
   while (n-- > 1) {
@@ -15,14 +17,11 @@ function ruleUrl(ruleId) {
 }
 
 function openUrl(file, line, column) {
-  return '/open?path=' + [file, line, column].join(':');
+  return 'javascript:;';
 }
 
 function openUrlHandler(file, line, column, event) {
-  const url = openUrl(file, line, column);
-  const method = 'POST';
-  const req = new Request(url, {method});
-  fetch(req);
+  backend.open(file, line, column);
   event.preventDefault();
 }
 
@@ -46,8 +45,7 @@ function LintFileSpecificLog(props) {
           R('td', {},
             R('a',
               {
-                target: '_blank',
-                href: openUrl(file, line, column),
+                href: 'javascript:;',
                 onClick: openUrlHandler.bind(null, file, line, column)
               },
               file, ':', line, ':', column
