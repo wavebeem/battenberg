@@ -14,6 +14,7 @@ const initialState = Object.freeze({
   settings: {
     theme: 'light',
     replace: true,
+    title: 'Untitled',
     folder: ''
   },
   loading: false,

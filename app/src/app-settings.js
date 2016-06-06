@@ -71,9 +71,9 @@ function AppSettings(props) {
     R('div', {className: 'AppSettingsContent'},
       textSetting(
         props,
-        T.SETTINGS_HEADER_FOLDER,
-        T.SETTINGS_DESCRIPTION_FOLDER,
-        'folder'
+        T.SETTINGS_HEADER_TITLE,
+        T.SETTINGS_DESCRIPTION_TITLE,
+        'title'
       ),
       checkboxSetting(
         props,

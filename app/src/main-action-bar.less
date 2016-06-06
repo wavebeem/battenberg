@@ -5,7 +5,15 @@
   .FlexRow();
   z-index: @z_index_toolbar;
   flex: 0 0 auto;
-  border-bottom: 1px solid fade(@black, 20%);
   box-shadow: @bar_shadow;
   padding: @header_padding;
+  border-bottom: 1px solid transparent;
+
+  .ThemeLight & {
+    border-color: fade(black, 20%);
+  }
+
+  .ThemeDark & {
+    border-color: fade(white, 20%);
+  }
 }

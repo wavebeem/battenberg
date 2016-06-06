@@ -51,7 +51,7 @@ function App(props) {
     store,
     settingsVisible
   } = props;
-  const {folder, theme} = settings;
+  const {title, folder, theme} = settings;
   const runLint = runLint_.bind(null, store, folder);
   const updateSettings = updateSettings_.bind(null, store);
   const onShowSettings = function() {
@@ -66,7 +66,7 @@ function App(props) {
     ThemeLight: theme === 'light' || !theme,
   });
   return R('div', {className},
-    R(AppHeader, {onShowSettings, folder}),
+    R(AppHeader, {onShowSettings, title}),
     R(AppMain, {logs, loading, runLint}),
     R(AppSettings, {
       isVisible: settingsVisible,

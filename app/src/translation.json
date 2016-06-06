@@ -6,6 +6,6 @@
   "SETTINGS_DESCRIPTION_THEME": "Choose a light or dark theme",
   "SETTINGS_HEADER_REPLACE": "Replace logs",
   "SETTINGS_DESCRIPTION_REPLACE": "Should logs be replaced or appended to when new logs appear",
-  "SETTINGS_HEADER_FOLDER": "Folder",
-  "SETTINGS_DESCRIPTION_FOLDER": "The root folder of the project you want to work with right now. The special character '~' is not currently supported, so please use '/Users/myname/blah' instead of '~/blah'"
+  "SETTINGS_HEADER_TITLE": "Title",
+  "SETTINGS_DESCRIPTION_TITLE": "Give this directory a title so you can remember where you are"
 }
