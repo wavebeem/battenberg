@@ -15,9 +15,9 @@ const initialState = Object.freeze({
   settings: {
     theme: 'light',
     replace: true,
-    title: 'Untitled',
-    folder: ''
+    title: 'Untitled'
   },
+  folder: '',
   loading: false,
   logs: [],
   settingsVisible: false,
@@ -44,8 +44,8 @@ const theProvider = React.createElement(Provider, {store}, theBattenberg);
 backend.cwd()
   .then(folder => {
     store.dispatch({
-      type:'UPDATE_SETTINGS',
-      value: {folder}
+      type:'UPDATE_FOLDER',
+      value: folder
     });
   });
 

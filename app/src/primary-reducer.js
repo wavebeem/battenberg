@@ -24,6 +24,9 @@ const table = {
   UPDATE_LOADING: (state, action) =>
     ({loading: action.value}),
 
+  UPDATE_FOLDER: (state, action) =>
+    ({folder: action.value}),
+
   UPDATE_SETTINGS: (state, action) =>
     ({settings: merge(state.settings, action.value)}),
 

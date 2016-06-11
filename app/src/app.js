@@ -43,20 +43,17 @@ function App(props) {
   const {
     settings,
     logs,
+    folder,
     dispatch,
     loading,
     store,
     settingsVisible
   } = props;
-  const {title, folder, theme} = settings;
+  const {title, theme} = settings;
   const runLint = runLint_.bind(null, store, folder);
   const updateSettings = updateSettings_.bind(null, store);
-  const onShowSettings = function() {
-    dispatch({type: 'SHOW_SETTINGS'});
-  };
-  const onHideSettings = function() {
-    dispatch({type: 'HIDE_SETTINGS'});
-  };
+  const onShowSettings = () => { dispatch({type: 'SHOW_SETTINGS'}); };
+  const onHideSettings = () => { dispatch({type: 'HIDE_SETTINGS'}); };
   const className = css({
     App: true,
     ThemeDark: theme === 'dark',
