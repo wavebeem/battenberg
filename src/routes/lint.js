@@ -11,6 +11,9 @@ function lint(req, res) {
     const file = req.body.path;
     const files = [file];
     const report = cli.executeOnFiles(files);
+    if (eslintOptions.fix) {
+      eslint.CLIEngine.outputFixes(report);
+    }
     res.json(report);
   } else {
     res.status(S.BAD_REQUEST).json({
