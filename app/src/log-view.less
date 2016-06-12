@@ -1,9 +1,9 @@
+@import "./mixins";
 @import "./variables";
 
 .LogView {
+  .FlexColumn();
   flex: 1 0 auto;
-  overflow-y: auto;
-  height: 0;
 
   .ThemeLight & {
     background: @light_gray;
@@ -16,12 +16,44 @@
   }
 }
 
+.LogViewLogs {
+  overflow-y: auto;
+  flex: 1 0 auto;
+  // Have to put height: 0 on a flexbox element with a scrollbar or it won't
+  // work! Flexbox is magic!
+  height: 0;
+}
+
+.LogViewToolbar {
+  .FlexRow();
+  z-index: @z_index_toolbar;
+  flex: 0 0 auto;
+  box-shadow: @bar_shadow;
+  padding: @header_padding;
+  border-top: 1px solid transparent;
+
+  .ThemeLight & {
+    border-color: fade(black, 20%);
+    background: @light_header_bg;
+    color: @light_header_fg;
+  }
+
+  .ThemeDark & {
+    border-color: fade(white, 20%);
+    background: @dark_header_bg;
+    color: @dark_header_fg;
+  }
+}
+
 .LogEntry {
   margin: 0;
   padding: 10px;
   overflow-x: auto;
   white-space: pre;
-  border-bottom: 1px solid transparent;
+
+  & + & {
+    border-top: 1px solid transparent;
+  }
 
   .ThemeDark & {
     border-color: fade(white, 10%);

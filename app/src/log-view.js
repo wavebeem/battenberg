@@ -2,6 +2,7 @@
 
 require('./log-view.less')
 const R = require('react').createElement;
+const ToolbarButton = require('./toolbar-button');
 const LintFileLog = require('./lint-file-log');
 const LintFileSpecificLog = require('./lint-file-specific-log');
 
@@ -20,7 +21,25 @@ function renderLog(log, i) {
 
 function LogView(props) {
   const {logs} = props;
-  return R('div', {className: 'LogView'}, logs.map(renderLog));
+  let elem = null;
+  const ref = ref => { elem = ref; };
+  const scrollToTop = () => {
+    if (elem) {
+      elem.scrollTop = 0;
+    }
+  };
+  const scrollToBottom = () => {
+    if (elem) {
+      elem.scrollTop = elem.scrollHeight;
+    }
+  };
+  return R('div', {className: 'LogView'},
+    R('div', {ref, className: 'LogViewLogs'}, logs.map(renderLog)),
+    R('div', {className: 'LogViewToolbar'},
+      R(ToolbarButton, {text: 'Top', onClick: scrollToTop}),
+      R(ToolbarButton, {text: 'Bottom', onClick: scrollToBottom})
+    )
+  );
 }
 
 module.exports = LogView;

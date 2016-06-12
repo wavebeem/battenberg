@@ -17,7 +17,7 @@
   background: transparent;
   border: 1px solid transparent;
   border-radius: 2px;
-  padding: 0 1em;
+  padding: 3px 1em;
   cursor: pointer;
 
   &:focus {
@@ -26,21 +26,21 @@
 
   .ThemeLight & {
     color: @black;
-    border-color: fade(black, 10%);
+    border-color: fade(black, 15%);
 
     &:hover,
     &:active {
-      background: fade(black, 10%);
+      background: fade(black, 15%);
     }
   }
 
   .ThemeDark & {
     color: @white;
-    border-color: fade(white, 10%);
+    border-color: fade(white, 30%);
 
     &:hover,
     &:active {
-      background: fade(white, 10%);
+      background: fade(white, 20%);
     }
   }
 }
