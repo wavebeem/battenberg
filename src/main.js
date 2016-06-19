@@ -8,6 +8,8 @@ const routesIndex = require('./routes/index');
 const routesCwd = require('./routes/cwd');
 const routesLint = require('./routes/lint');
 const routesOpen = require('./routes/open');
+const routesLoadSettings = require('./routes/load-settings');
+const routesSaveSettings = require('./routes/save-settings');
 
 const app = express();
 
@@ -21,4 +23,6 @@ app.get('/', routesIndex);
 app.get('/cwd', routesCwd);
 app.post('/lint', routesLint);
 app.post('/open', routesOpen);
+app.get('/settings', routesLoadSettings);
+app.put('/settings', routesSaveSettings);
 app.listen(C.PORT, C.HOST, greet);

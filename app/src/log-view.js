@@ -36,8 +36,8 @@ function LogView(props) {
   return R('div', {className: 'LogView'},
     R('div', {ref, className: 'LogViewLogs'}, logs.map(renderLog)),
     R('div', {className: 'LogViewToolbar'},
-      R(ToolbarButton, {text: 'Top', onClick: scrollToTop}),
-      R(ToolbarButton, {text: 'Bottom', onClick: scrollToBottom})
+      R(ToolbarButton, {text: '↑', onClick: scrollToTop}),
+      R(ToolbarButton, {text: '↓', onClick: scrollToBottom})
     )
   );
 }

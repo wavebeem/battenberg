@@ -1,3 +1,5 @@
+const Backend = require('./backend');
+
 function merge(obj1, obj2) {
   return Object.freeze(Object.assign({}, obj1, obj2));
 }
@@ -27,8 +29,12 @@ const table = {
   UPDATE_FOLDER: (state, action) =>
     ({folder: action.value}),
 
-  UPDATE_SETTINGS: (state, action) =>
-    ({settings: merge(state.settings, action.value)}),
+  UPDATE_SETTINGS: (state, action) => {
+    // TODO: Is it bad to write a file to the disk here in a reducer?
+    const settings = merge(state.settings, action.value);
+    Backend.saveSettings(settings);
+    return {settings};
+  },
 
   SHOW_SETTINGS: (state, action) =>
     ({settingsVisible: true}),

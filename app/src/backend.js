@@ -1,5 +1,17 @@
 const {fetch, Headers, Request} = window;
 
+function gimme(req) {
+  return fetch(req)
+    .then(resp => {
+      if (resp.ok) {
+        return resp;
+      } else {
+        throw resp;
+      }
+    })
+    .then(resp => resp.json());
+}
+
 function POST(url, data) {
   const headers = new Headers({
     'Content-Type': 'application/json'
@@ -7,11 +19,21 @@ function POST(url, data) {
   const body = JSON.stringify(data);
   const method = 'POST';
   const req = new Request(url, {body, method, headers});
-  return fetch(req).then(resp => resp.json());
+  return gimme(req);
+}
+
+function PUT(url, data) {
+  const headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+  const body = JSON.stringify(data);
+  const method = 'PUT';
+  const req = new Request(url, {body, method, headers});
+  return gimme(req);
 }
 
 function GET(url) {
-  return fetch(url).then(resp => resp.json());
+  return gimme(url);
 }
 
 function lint(path) {
@@ -27,6 +49,16 @@ function cwd() {
   return GET('/cwd');
 }
 
+function saveSettings(settings) {
+  return PUT('/settings', settings);
+}
+
+function loadSettings(settings) {
+  return GET('/settings');
+}
+
 exports.lint = lint;
 exports.open = open;
 exports.cwd = cwd;
+exports.saveSettings = saveSettings;
+exports.loadSettings = loadSettings;
