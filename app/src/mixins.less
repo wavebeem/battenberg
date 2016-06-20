@@ -74,3 +74,13 @@
     outline: 0;
   }
 }
+
+.BarShadow() {
+  .ThemeLight & {
+    box-shadow: @light_bar_shadow;
+  }
+
+  .ThemeDark & {
+    box-shadow: @dark_bar_shadow;
+  }
+}
