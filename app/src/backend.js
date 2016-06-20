@@ -40,9 +40,9 @@ function lint(path) {
   return POST('/lint', {path});
 }
 
-function open(file, line, column) {
+function open(editor, file, line, column) {
   const path = [file, line, column].join(':');
-  return POST('/open', {path});
+  return POST('/open', {editor, path});
 }
 
 function cwd() {

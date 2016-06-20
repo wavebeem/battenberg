@@ -61,7 +61,7 @@ function App(props) {
   });
   return R('div', {className},
     R(AppHeader, {onShowSettings, title}),
-    R(AppMain, {logs, loading, runLint}),
+    R(AppMain, {settings, logs, loading, runLint}),
     R(AppSettings, {
       isVisible: settingsVisible,
       settings,

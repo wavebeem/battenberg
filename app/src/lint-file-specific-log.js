@@ -20,13 +20,14 @@ function openUrl(file, line, column) {
   return 'javascript:;';
 }
 
-function openUrlHandler(file, line, column, event) {
-  backend.open(file, line, column);
+function openUrlHandler(editor, file, line, column, event) {
+  backend.open(editor, file, line, column);
   event.preventDefault();
 }
 
 function LintFileSpecificLog(props) {
-  const {log} = props;
+  const {settings, log} = props;
+  const {editor} = settings;
   const {
     file,
     line,
@@ -46,7 +47,7 @@ function LintFileSpecificLog(props) {
             R('a',
               {
                 href: 'javascript:;',
-                onClick: openUrlHandler.bind(null, file, line, column)
+                onClick: openUrlHandler.bind(null, editor, file, line, column)
               },
               file, ':', line, ':', column
             )

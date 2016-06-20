@@ -90,6 +90,20 @@ function AppSettings(props) {
           {value: 'dark', name: 'Dark'},
           {value: 'light', name: 'Light'}
         ]
+      ),
+      dropdownSetting(
+        props,
+        T.SETTINGS_HEADER_EDTIOR,
+        T.SETTINGS_DESCRIPTION_EDITOR,
+        'editor',
+        [
+          {value: 'sublime', name: 'Sublime Text'},
+          {value: 'atom', name: 'Atom Editor'},
+          {value: 'code', name: 'Visual Studio Code'},
+          {value: 'webstorm', name: 'WebStorm'},
+          {value: 'phpstorm', name: 'PhpStorm'},
+          {value: 'idea14ce', name: 'IDEA 14 CE'},
+        ]
       )
     )
   );

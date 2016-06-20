@@ -3,6 +3,8 @@
   "APP_NAME": "Battenberg",
   "CLOSE": "Close",
   "SETTINGS": "Settings",
+  "SETTINGS_HEADER_EDTIOR": "Editor",
+  "SETTINGS_DESCRIPTION_EDITOR": "Choose your preferred editor for opening files",
   "SETTINGS_HEADER_THEME": "Theme",
   "SETTINGS_DESCRIPTION_THEME": "Choose a light or dark theme",
   "SETTINGS_HEADER_REPLACE": "Replace logs",

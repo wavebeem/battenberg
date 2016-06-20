@@ -1,5 +1,6 @@
 {
-  "theme": "dark",
+  "theme": "light",
   "replace": true,
-  "title": "Eponymous Project"
+  "title": "Eponymous Project",
+  "editor": "sublime"
 }

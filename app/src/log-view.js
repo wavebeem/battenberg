@@ -11,16 +11,16 @@ const table = {
   LINT_FILE_SPECIFIC: LintFileSpecificLog
 };
 
-function renderLog(log, i) {
+function renderLog(settings, log, i) {
   if (table.hasOwnProperty(log.type)) {
-    return R(table[log.type], {log, key: i})
+    return R(table[log.type], {settings, log, key: i})
   }
   console.error('unknown log type:', log);
   return null;
 }
 
 function LogView(props) {
-  const {logs} = props;
+  const {settings, logs} = props;
   const refs = {elem: null};
   const ref = elem => { refs.elem = elem; };
   const scrollToTop = () => {
@@ -34,7 +34,9 @@ function LogView(props) {
     }
   };
   return R('div', {className: 'LogView'},
-    R('div', {ref, className: 'LogViewLogs'}, logs.map(renderLog)),
+    R('div', {ref, className: 'LogViewLogs'},
+      logs.map((log, i) => renderLog(settings, log, i))
+    ),
     R('div', {className: 'LogViewToolbar'},
       R(ToolbarButton, {text: '↑', onClick: scrollToTop}),
       R(ToolbarButton, {text: '↓', onClick: scrollToBottom})
