@@ -8,6 +8,7 @@ function send(title, body) {
   // center too badly. Also `renotify` is neeeded in Chrome or else the notification won't appear until the old one is dismissed.
   new Notification(title, {
     body,
+    icon: '/img/favicon-32.png',
     tag: 'battenberg',
     renotify: true
   });
