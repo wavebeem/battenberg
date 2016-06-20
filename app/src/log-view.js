@@ -21,16 +21,16 @@ function renderLog(log, i) {
 
 function LogView(props) {
   const {logs} = props;
-  let elem = null;
-  const ref = ref => { elem = ref; };
+  const refs = {elem: null};
+  const ref = elem => { refs.elem = elem; };
   const scrollToTop = () => {
-    if (elem) {
-      elem.scrollTop = 0;
+    if (refs.elem) {
+      refs.elem.scrollTop = 0;
     }
   };
   const scrollToBottom = () => {
-    if (elem) {
-      elem.scrollTop = elem.scrollHeight;
+    if (refs.elem) {
+      refs.elem.scrollTop = refs.elem.scrollHeight;
     }
   };
   return R('div', {className: 'LogView'},

@@ -2,6 +2,7 @@ require('./main-action-bar.less');
 const R = require('react').createElement;
 const ToolbarButton = require('./toolbar-button');
 const LoadingSpinner = require('./loading-spinner');
+const Notify = require('./notify');
 
 function MainActionBar(props) {
   const {loading, runLint} = props;

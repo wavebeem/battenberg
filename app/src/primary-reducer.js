@@ -1,4 +1,5 @@
 const Backend = require('./backend');
+const Notify = require('./notify');
 
 function merge(obj1, obj2) {
   return Object.freeze(Object.assign({}, obj1, obj2));
@@ -44,6 +45,9 @@ const table = {
 
   DISPLAY_LINT_RESULTS: (state, action) => {
     const logs = processLintResults(action.value.results);
+    if (action.value.errorCount > 0) {
+      Notify.buildError();
+    }
     if (state.settings.replace) {
       return {logs};
     } else {

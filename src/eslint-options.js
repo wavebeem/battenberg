@@ -19,6 +19,7 @@ const options = {
   rules: {
     semi: WARN,
     strict: [WARN, 'safe'],
+    'no-undef': ERROR,
     'wrap-iife': WARN,
     'no-trailing-spaces': WARN,
     'comma-style': [WARN, 'last'],

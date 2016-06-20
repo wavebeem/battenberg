@@ -7,6 +7,7 @@ const ReactDOM = require('react-dom');
 const Provider = require('react-redux').Provider;
 const createStore = require('redux').createStore;
 
+const T = require('./translation.json');
 const Settings = require('./backend');
 const backend = require('./backend');
 const primaryReducer = require('./primary-reducer');
