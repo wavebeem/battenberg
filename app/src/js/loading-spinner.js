@@ -1,4 +1,3 @@
-require('./loading-spinner.less');
 const R = require('react').createElement;
 
 const css = require('./css');

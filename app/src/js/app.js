@@ -1,6 +1,5 @@
 'use strict';
 
-require('./app.less');
 require('whatwg-fetch');
 
 const R = require('react').createElement;

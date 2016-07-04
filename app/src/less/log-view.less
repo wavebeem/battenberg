@@ -51,6 +51,16 @@
   overflow-x: auto;
   white-space: pre;
 
+  .ThemeLight & {
+    background: @light_gray;
+    color: @black;
+  }
+
+  .ThemeDark & {
+    background: @dark_gray;
+    color: @white;
+  }
+
   & + & {
     border-top: 1px solid transparent;
   }

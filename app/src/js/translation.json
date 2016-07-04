@@ -1,4 +1,8 @@
 {
+  "TOOLBAR_CLEAR_ALL": "⌫",
+  "TOOLBAR_SCROLL_TO_TOP": "↑ Top",
+  "TOOLBAR_SCROLL_TO_BOTTOM": "↓ Bottom",
+  "TOOLBAR_TOGGLE_LINE_WRAP": "↩ Wrap",
   "BUILD_ERROR": "Build error",
   "APP_NAME": "Battenberg",
   "CLOSE": "Close",

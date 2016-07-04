@@ -1,4 +1,3 @@
-require('./lint-file-specific-log.less');
 const R = require('react').createElement;
 
 const backend = require('./backend');

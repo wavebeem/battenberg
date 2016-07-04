@@ -1,4 +1,3 @@
-require('./toolbar-button.less');
 const R = require('react').createElement;
 
 function ToolbarButton(props) {

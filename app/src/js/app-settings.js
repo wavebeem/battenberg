@@ -1,6 +1,5 @@
 'use strict';
 
-require('./app-settings.less');
 const T = require('./translation.json');
 const css = require('./css');
 const R = require('react').createElement;

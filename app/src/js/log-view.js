@@ -1,7 +1,7 @@
 'use strict';
 
-require('./log-view.less')
 const R = require('react').createElement;
+const T = require('./translation.json');
 const ToolbarButton = require('./toolbar-button');
 const LintFileLog = require('./lint-file-log');
 const LintFileSpecificLog = require('./lint-file-specific-log');
@@ -38,8 +38,14 @@ function LogView(props) {
       logs.map((log, i) => renderLog(settings, log, i))
     ),
     R('div', {className: 'LogViewToolbar'},
-      R(ToolbarButton, {text: '↑', onClick: scrollToTop}),
-      R(ToolbarButton, {text: '↓', onClick: scrollToBottom})
+      R(ToolbarButton, {
+        text: T.TOOLBAR_SCROLL_TO_TOP,
+        onClick: scrollToTop
+      }),
+      R(ToolbarButton, {
+        text: T.TOOLBAR_SCROLL_TO_BOTTOM,
+        onClick: scrollToBottom
+      })
     )
   );
 }

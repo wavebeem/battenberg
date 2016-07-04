@@ -7,9 +7,13 @@
     "battenberg": "bin/battenberg.js"
   },
   "scripts": {
-    "prepublish": "cd app && webpack",
+    "watch": "cd app/src && chokidar --initial '**/*.js' '**/*.json' '**/*.less' -c 'npm run build:all'",
+    "build:js": "cd app && webpack",
+    "build:css": "lessc app/src/less/main.less app/dist/style.css",
+    "build:all": "npm run build:css && npm run build:js",
+    "prepublish": "npm run build:all",
     "start": "node bin/battenberg.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"TODO: Write tests\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -34,16 +38,14 @@
     "open-in-editor": "^1.2.0"
   },
   "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.6.1",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "less": "^2.6.1",
-    "css-loader": "^0.23.1",
-    "json-loader": "^0.5.4",
-    "less-loader": "^2.2.3",
-    "style-loader": "^0.13.1",
-    "whatwg-fetch": "^1.0.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "whatwg-fetch": "^1.0.0"
   }
 }

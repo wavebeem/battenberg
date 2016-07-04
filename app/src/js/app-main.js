@@ -1,6 +1,5 @@
 'use strict';
 
-require('./app-main.less');
 const R = require('react').createElement;
 const T = require('./translation.json');
 const LogView = require('./log-view');
