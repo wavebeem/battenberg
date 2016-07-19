@@ -3,6 +3,8 @@
   "TOOLBAR_SCROLL_TO_TOP": "↑ Top",
   "TOOLBAR_SCROLL_TO_BOTTOM": "↓ Bottom",
   "TOOLBAR_TOGGLE_LINE_WRAP": "↩ Wrap",
+  "LINT_ALL": "Lint All",
+  "NO_LOGS": "Nothing to see here!",
   "BUILD_ERROR": "Build error",
   "APP_NAME": "Battenberg",
   "CLOSE": "Close",

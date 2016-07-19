@@ -25,7 +25,7 @@ function runLint_(store, folder) {
     value: true
   })
 
-  backend.lint(folder)
+  backend.lint([folder])
     .then(value => {
       store.dispatch({
         type: 'DISPLAY_LINT_RESULTS',
