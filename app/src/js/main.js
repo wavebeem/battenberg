@@ -4,6 +4,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const Provider = require('react-redux').Provider;
 const createStore = require('redux').createStore;
+const SocketIO = require('socket.io-client');
 
 const T = require('./translation.json');
 const Settings = require('./backend');
@@ -56,6 +57,17 @@ backend.loadSettings()
       value: settings
     });
   });
+
+const socket = SocketIO.connect('http://localhost:3200');
+socket.on('file-update', data => {
+  console.log('SOMETHING CHANGED', data);
+  backend.lint([data]).then(value => {
+    store.dispatch({
+      type: 'DISPLAY_LINT_RESULTS',
+      value
+    });
+  });
+});
 
 function start() {
   const root = document.getElementById('react-root');

@@ -35,7 +35,8 @@
     "body-parser": "^1.15.1",
     "eslint": "^2.10.2",
     "express": "^4.13.4",
-    "open-in-editor": "^1.2.0"
+    "open-in-editor": "^1.2.0",
+    "socket.io": "^1.4.8"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
@@ -45,6 +46,7 @@
     "react-dom": "^15.0.2",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
+    "socket.io-client": "^1.4.8",
     "webpack": "^1.13.1",
     "whatwg-fetch": "^1.0.0"
   }

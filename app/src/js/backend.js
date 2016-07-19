@@ -36,8 +36,8 @@ function GET(url) {
   return gimme(url);
 }
 
-function lint(path) {
-  return POST('/lint', {path});
+function lint(paths) {
+  return POST('/lint', {paths});
 }
 
 function open(editor, file, line, column) {

@@ -21,32 +21,17 @@ function renderLog(settings, log, i) {
 
 function LogView(props) {
   const {settings, logs} = props;
-  const refs = {elem: null};
-  const ref = elem => { refs.elem = elem; };
-  const scrollToTop = () => {
-    if (refs.elem) {
-      refs.elem.scrollTop = 0;
-    }
-  };
-  const scrollToBottom = () => {
-    if (refs.elem) {
-      refs.elem.scrollTop = refs.elem.scrollHeight;
-    }
-  };
-  return R('div', {className: 'LogView'},
-    R('div', {ref, className: 'LogViewLogs'},
+
+  const theLogs =
+    R('div', {className: 'LogViewLogs'},
       logs.map((log, i) => renderLog(settings, log, i))
-    ),
-    R('div', {className: 'LogViewToolbar'},
-      R(ToolbarButton, {
-        text: T.TOOLBAR_SCROLL_TO_TOP,
-        onClick: scrollToTop
-      }),
-      R(ToolbarButton, {
-        text: T.TOOLBAR_SCROLL_TO_BOTTOM,
-        onClick: scrollToBottom
-      })
-    )
+    );
+
+  const theEmpty =
+    R('div', {className: 'LogViewNoLogs'}, T.NO_LOGS);
+
+  return R('div', {className: 'LogView'},
+    logs.length === 0 ? theEmpty : theLogs
   );
 }
 
