@@ -6,15 +6,20 @@
 
 @light_gray: #f8f8f8;
 
-@red: #cc0000;
-@light_red: #ef5350;
-@pink: #f49ac2;
-@yellow: #fff799;
+@red: #c0392b;
+@light_red: #e74c3c;
 
-@dark_header_bg: @gray;
+@teal: #16a085;
+@green: #27ae60;
+@blue: #2980b9;
+@purple: #8e44ad;
+@yellow: #f1c40f;
+@orange: #d35400;
+
+@dark_header_bg: @teal;
 @dark_header_fg: @white;
 
-@light_header_bg: @white;
+@light_header_bg: mix(@teal, @white, 50%);
 @light_header_fg: @black;
 
 @header_padding: 10px;
@@ -27,5 +32,5 @@
 @font_mono: Menlo, Consolas, monospace;
 @font_normal: Helvetica, Arial, sans-serif;
 
-@light_bar_shadow: 0 0 12px fade(@black, 20%);
+@light_bar_shadow: 0 0 24px fade(@black, 40%);
 @dark_bar_shadow: 0 0 12px fade(@black, 70%);

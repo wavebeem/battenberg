@@ -16,15 +16,7 @@
   animation: loading-spinner 1s infinite @timing;
   transition: 500ms opacity;
 
-  .ThemeLight & {
-    border-top-color: @black;
-    border-left-color: @black;
-  }
-
-  .ThemeDark & {
-    border-top-color: @white;
-    border-left-color: @white;
-  }
+  .SpinnerFg();
 
   &.hidden {
     opacity: 0;

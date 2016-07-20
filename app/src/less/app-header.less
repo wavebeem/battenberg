@@ -2,20 +2,14 @@
 @import "./mixins";
 
 .AppHeader {
-  .FlexRow();
+  .HeaderColors();
+  .BarShadow();
 
+  border-bottom: 1px solid transparent;
   z-index: @z_index_header;
   padding: @header_padding;
 
-  .ThemeLight & {
-    background: @light_header_bg;
-    color: @light_header_fg;
-  }
-
-  .ThemeDark & {
-    background: @dark_header_bg;
-    color: @dark_header_fg;
-  }
+  .ToolbarBorderColor();
 }
 
 .AppIcon {
@@ -30,7 +24,6 @@
 
 .AppTitle {
   font-weight: bold;
-  flex: 1 1 auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

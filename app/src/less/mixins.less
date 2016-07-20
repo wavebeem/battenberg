@@ -84,3 +84,59 @@
     box-shadow: @dark_bar_shadow;
   }
 }
+
+.LogBg() {
+  .ThemeLight & {
+    background: @white;
+    color: @black;
+  }
+
+  .ThemeDark & {
+    background: @dark_gray;
+    color: @white;
+  }
+}
+
+.ArrowFg() {
+  .ThemeDark & {
+    color: @light_red;
+  }
+
+  .ThemeLight & {
+    color: @red;
+  }
+}
+
+.SpinnerFg() {
+  .ThemeLight & {
+    border-top-color: @black;
+    border-left-color: @black;
+  }
+
+  .ThemeDark & {
+    border-top-color: @white;
+    border-left-color: @white;
+  }
+}
+
+.HeaderColors() {
+  &.ThemeDark {
+    background: @dark_header_bg;
+    color: @dark_header_fg;
+  }
+
+  &.ThemeLight {
+    background: @light_header_bg;
+    color: @light_header_fg;
+  }
+}
+
+.ToolbarBorderColor() {
+  .ThemeLight & {
+    border-color: fade(black, 20%);
+  }
+
+  .ThemeDark & {
+    border-color: fade(white, 20%);
+  }
+}

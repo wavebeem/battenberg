@@ -3,18 +3,9 @@
 
 .MainActionBar {
   .FlexRow();
-  .BarShadow();
   z-index: @z_index_toolbar;
   flex: 0 0 auto;
-  padding: @header_padding;
-  padding-top: 0;
+  padding: 0;
+  padding-top: @header_padding;
   border-bottom: 1px solid transparent;
-
-  .ThemeLight & {
-    border-color: fade(black, 20%);
-  }
-
-  .ThemeDark & {
-    border-color: fade(white, 20%);
-  }
 }

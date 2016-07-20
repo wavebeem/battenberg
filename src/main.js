@@ -16,7 +16,7 @@ const routesSaveSettings = require('./routes/save-settings');
 
 const app = express();
 const server = http.Server(app);
-const io = socketIO(server)
+const io = socketIO(server);
 
 function greet() {
   console.log('Battenberg started at http://localhost:' + C.PORT + '/');

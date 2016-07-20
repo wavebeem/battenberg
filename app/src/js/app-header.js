@@ -2,18 +2,16 @@
 
 const R = require('react').createElement;
 const T = require('./translation.json');
+const MainActionBar = require('./main-action-bar');
 
 function AppHeader(props) {
-  const {title} = props;
+  const {title, loading, runLint, onShowSettings} = props;
   return R('header', {className: 'AppHeader'},
-    R('span', {className: 'AppTitle'},
+    R('div', {className: 'AppTitle'},
       T.APP_NAME,
       R('span', {className: 'AppSubtitle', title}, title)
     ),
-    R('button', {
-      className: 'SettingsButton',
-      onClick: props.onShowSettings
-    }, T.SETTINGS)
+    R(MainActionBar, {loading, runLint, onShowSettings})
   );
 }
 

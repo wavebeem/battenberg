@@ -59,8 +59,8 @@ function App(props) {
     ThemeLight: theme === 'light' || !theme,
   });
   return R('div', {className},
-    R(AppHeader, {onShowSettings, title}),
-    R(AppMain, {settings, logs, loading, runLint}),
+    R(AppHeader, {onShowSettings, title, loading, runLint}),
+    R(AppMain, {settings, logs}),
     R(AppSettings, {
       isVisible: settingsVisible,
       settings,
