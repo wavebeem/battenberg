@@ -1,26 +1,36 @@
 const Backend = require('./backend');
 const Notify = require('./notify');
 
+function flatMap(xs, f) {
+  return xs.reduce((ys, x) => ys.concat(f(x)), []);
+}
+
+function cons(x, xs) {
+  return [x].concat(xs);
+}
+
 function merge(obj1, obj2) {
   return Object.freeze(Object.assign({}, obj1, obj2));
 }
 
 function allLogs(log) {
-  return log.messages.map(message =>
+  const fileHeader = {
+    type: 'LINT_FILE',
+    file: log.filePath
+  };
+  const messages = flatMap(log.messages, message =>
     getSpecifics(log.filePath, message)
   );
+  return cons(fileHeader, messages);
 }
 
 function getSpecifics(file, message) {
-  const type = 'LINT_FILE_SPECIFIC';
-  return merge({file, type}, message);
+  return merge({type: 'LINT_FILE_SPECIFIC', file}, message);
 }
 
 function processLintResults(logs) {
-  return logs
-    .filter(x => x.warningCount + x.errorCount > 0)
-    .map(allLogs)
-    .reduce((acc, x) => acc.concat(x), []);
+  const validLogs = logs.filter(x => x.warningCount + x.errorCount > 0);
+  return flatMap(validLogs, allLogs);
 }
 
 const table = {
@@ -48,11 +58,7 @@ const table = {
     if (action.value.errorCount > 0) {
       Notify.buildError();
     }
-    if (state.settings.replace) {
-      return {logs};
-    } else {
-      return {logs: state.logs.concat(logs)};
-    }
+    return {logs};
   },
 };
 

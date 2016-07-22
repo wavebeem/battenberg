@@ -74,12 +74,6 @@ function AppSettings(props) {
         T.SETTINGS_DESCRIPTION_TITLE,
         'title'
       ),
-      checkboxSetting(
-        props,
-        T.SETTINGS_HEADER_REPLACE,
-        T.SETTINGS_DESCRIPTION_REPLACE,
-        'replace'
-      ),
       dropdownSetting(
         props,
         T.SETTINGS_HEADER_THEME,

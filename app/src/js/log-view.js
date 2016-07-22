@@ -12,6 +12,7 @@ const table = {
 };
 
 function renderLog(settings, log, i) {
+  console.log(log);
   if (table.hasOwnProperty(log.type)) {
     return R(table[log.type], {settings, log, key: i})
   }

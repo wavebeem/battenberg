@@ -15,7 +15,6 @@ const App = require('./app');
 const initialState = Object.freeze({
   settings: {
     theme: 'light',
-    replace: true,
     title: 'Untitled'
   },
   folder: '',

@@ -13,8 +13,6 @@
   "SETTINGS_DESCRIPTION_EDITOR": "Choose your preferred editor for opening files",
   "SETTINGS_HEADER_THEME": "Theme",
   "SETTINGS_DESCRIPTION_THEME": "Choose a light or dark theme",
-  "SETTINGS_HEADER_REPLACE": "Replace logs",
-  "SETTINGS_DESCRIPTION_REPLACE": "Should logs be replaced or appended to when new logs appear",
   "SETTINGS_HEADER_TITLE": "Title",
   "SETTINGS_DESCRIPTION_TITLE": "Give this directory a title so you can remember where you are"
 }
