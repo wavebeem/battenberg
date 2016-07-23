@@ -25,7 +25,7 @@ function openUrlHandler(editor, file, line, column, event) {
 }
 
 function LintFileSpecificLog(props) {
-  const {settings, log} = props;
+  const {settings, log, border} = props;
   const {editor} = settings;
   const {
     file,
@@ -36,8 +36,9 @@ function LintFileSpecificLog(props) {
     message,
     source
   } = log;
-  return R('div', {className: 'LogEntry'},
-    R('div', {className: 'LintMessage'}, message),
+  const formattedMessage = message.replace(/[.]$/, '');
+  return R('div', {className: 'LogEntry LogEntryFileSpecific'},
+    R('div', {className: 'LintMessage'}, formattedMessage),
     R('table', {className: 'Metadata'},
       R('tbody', {},
         R('tr', {},

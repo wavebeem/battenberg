@@ -12,9 +12,15 @@ const table = {
 };
 
 function renderLog(settings, log, i) {
-  console.log(log);
   if (table.hasOwnProperty(log.type)) {
-    return R(table[log.type], {settings, log, key: i})
+    console.log(i);
+    const props = {
+      settings,
+      log,
+      border: i > 0,
+      key: i
+    };
+    return R(table[log.type], props);
   }
   console.error('unknown log type:', log);
   return null;
