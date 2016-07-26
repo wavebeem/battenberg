@@ -13,7 +13,6 @@ const table = {
 
 function renderLog(settings, log, i) {
   if (table.hasOwnProperty(log.type)) {
-    console.log(i);
     const props = {
       settings,
       log,
