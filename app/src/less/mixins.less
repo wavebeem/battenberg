@@ -77,11 +77,15 @@
 
 .BarShadow() {
   .ThemeLight & {
-    box-shadow: @light_bar_shadow;
+    box-shadow:
+      0 1px 0 fade(@black, 5%),
+      0 0 12px fade(@black, 20%);
   }
 
   .ThemeDark & {
-    box-shadow: @dark_bar_shadow;
+    box-shadow:
+      0 1px 0 fade(@white, 20%),
+      0 0 12px fade(@black, 70%);
   }
 }
 
@@ -128,16 +132,6 @@
   &.ThemeLight {
     background: @light_header_bg;
     color: @light_header_fg;
-  }
-}
-
-.ToolbarBorderColor() {
-  .ThemeLight & {
-    border-color: fade(black, 15%);
-  }
-
-  .ThemeDark & {
-    border-color: fade(white, 15%);
   }
 }
 
