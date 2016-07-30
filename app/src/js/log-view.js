@@ -6,9 +6,9 @@ const T = require('./translation.json');
 const ToolbarButton = require('./toolbar-button');
 const LintFileLog = require('./lint-file-log');
 const LintFileSpecificLog = require('./lint-file-specific-log');
+const Paginator = require('./paginator');
 
-// const PAGE_SIZE = 600;
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 500;
 
 const table = {
   LINT_FILE: LintFileLog,
@@ -29,56 +29,32 @@ function renderLog(settings, log, i) {
   return null;
 }
 
-function fakeLogs(logs) {
-  const N = 600;
-  if (logs.length === 0) {
-    return logs;
-  }
-  while (logs.length < N) {
-    logs = logs.concat(logs);
-  }
-  return logs.slice(0, N);
-}
-
 // This view paginates data into chunks so we don't render too many logs on-
 // screen and hurt scrolling performance. I wish web browsers would do this for
 // me. Or have some kind of primitive you could use to help with this.
-
-// TODO: Put pagination concerns into a separate stateless module and use it here.
-
 const LogView = React.createClass({
   displayName: 'LogView',
-  elem: null,
 
   getInitialState() {
     return this.stateFromProps(this.props);
   },
 
-  // withElem(fn) {
-  //   window.setTimeout(() => {
-  //     if (this.elem) {
-  //       fn(this.elem);
-  //     }
-  //   }, 0);
-  // },
-
   goToPrevPage() {
-    const i = this.state.index;
-    const index = Math.max(0, i - PAGE_SIZE);
-    this.setState({index});
-    // this.withElem(elem => {
-    //   elem.scrollTop = 0;
-    // });
+    this.state.paginator.goToPrevPage();
+    this.setState({
+      isOnLastPage: this.state.paginator.isOnLastPage(),
+      isOnFirstPage: this.state.paginator.isOnFirstPage(),
+      currentPageData: this.state.paginator.currentPageData()
+    });
   },
 
   goToNextPage() {
-    const logs = this.state.logs;
-    const i = this.state.index;
-    const index = Math.min(logs.length - PAGE_SIZE, i + PAGE_SIZE);
-    this.setState({index});
-    // this.withElem(elem => {
-    //   elem.scrollTop = elem.scrollHeight;
-    // });
+    this.state.paginator.goToNextPage();
+    this.setState({
+      isOnLastPage: this.state.paginator.isOnLastPage(),
+      isOnFirstPage: this.state.paginator.isOnFirstPage(),
+      currentPageData: this.state.paginator.currentPageData()
+    });
   },
 
   componentWillReceiveProps(props) {
@@ -86,29 +62,32 @@ const LogView = React.createClass({
   },
 
   stateFromProps(props) {
+    const logs = props.logs;
+    const paginator = Paginator(PAGE_SIZE, 1, logs);
     return {
-      index: 0,
-      logs: fakeLogs(props.logs)
+      logs,
+      paginator,
+      isOnLastPage: paginator.isOnLastPage(),
+      isOnFirstPage: paginator.isOnFirstPage(),
+      currentPageData: paginator.currentPageData()
     };
   },
 
   render() {
-    const props = this.props;
-    const i = this.state.index;
-    const logs = this.state.logs.slice(i, i + PAGE_SIZE);
-    const {settings} = props;
+    const {settings} = this.props;
+    const logs = this.state.currentPageData;
 
     const prevPage =
       R('button', {
         onClick: () => this.goToPrevPage(),
         className: 'LogViewPaginator'
-      }, 'Previous page');
+      }, T.PREV_PAGE);
 
     const nextPage =
       R('button', {
         onClick: () => this.goToNextPage(),
         className: 'LogViewPaginator'
-      }, 'Next page');
+      }, T.NEXT_PAGE);
 
     const ref = elem => {
       if (elem) {
@@ -120,9 +99,9 @@ const LogView = React.createClass({
 
     const theLogs =
       R('div', {className: 'LogViewLogs', ref},
-        i > 0 ? prevPage : null,
+        this.state.isOnFirstPage ? null : prevPage,
         logs.map((log, i) => renderLog(settings, log, i)),
-        (i + PAGE_SIZE) < (this.state.logs.length - 1) ? nextPage : null
+        this.state.isOnLastPage ? null : nextPage
       );
 
     const theEmpty =
