@@ -1,7 +1,7 @@
 'use strict';
 
 const R = require('react').createElement;
-const T = require('./translation.json');
+const T = require('./translation');
 const MainActionBar = require('./main-action-bar');
 
 function AppHeader(props) {

@@ -6,8 +6,7 @@ const Provider = require('react-redux').Provider;
 const createStore = require('redux').createStore;
 const SocketIO = require('socket.io-client');
 
-const T = require('./translation.json');
-const Settings = require('./backend');
+const T = require('./translation');
 const backend = require('./backend');
 const primaryReducer = require('./primary-reducer');
 const App = require('./app');

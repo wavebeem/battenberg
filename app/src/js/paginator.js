@@ -7,7 +7,7 @@ function Paginator(pageSize, currentPage, data) {
     return currentPage === 1;
   }
 
-  function isOnLastPage(n) {
+  function isOnLastPage() {
     return currentPage === pageCount();
   }
 

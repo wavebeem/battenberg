@@ -1,6 +1,6 @@
 'use strict';
 
-const T = require('./translation.json');
+const T = require('./translation');
 const css = require('./css');
 const R = require('react').createElement;
 

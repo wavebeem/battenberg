@@ -1,4 +1,4 @@
-const T = require('./translation.json');
+const T = require('./translation');
 
 const {Notification} = window;
 

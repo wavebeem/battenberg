@@ -2,7 +2,7 @@
 
 const React = require('react');
 const R = React.createElement;
-const T = require('./translation.json');
+const T = require('./translation');
 const ToolbarButton = require('./toolbar-button');
 const LintFileLog = require('./lint-file-log');
 const LintFileSpecificLog = require('./lint-file-specific-log');
