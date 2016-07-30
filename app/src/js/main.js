@@ -17,7 +17,6 @@ const initialState = Object.freeze({
     theme: 'light',
     title: 'Untitled'
   },
-  folder: '',
   loading: false,
   logs: [],
   settingsVisible: false,
@@ -40,14 +39,6 @@ const theBattenberg = React.createElement(App, {store});
 const theProvider = React.createElement(Provider, {store}, theBattenberg);
 
 // TODO: Maybe wait for these network requests before showing the app?
-
-backend.cwd()
-  .then(folder => {
-    store.dispatch({
-      type:'UPDATE_FOLDER',
-      value: folder
-    });
-  });
 
 backend.loadSettings()
   .then(settings => {

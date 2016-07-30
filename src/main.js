@@ -8,7 +8,6 @@ const socketIO = require('socket.io');
 const C = require('./constants');
 const watcher = require('./watcher');
 const routesIndex = require('./routes/index');
-const routesCwd = require('./routes/cwd');
 const routesLint = require('./routes/lint');
 const routesOpen = require('./routes/open');
 const routesLoadSettings = require('./routes/load-settings');
@@ -20,6 +19,7 @@ const io = socketIO(server);
 
 function greet() {
   console.log('Battenberg started at http://localhost:' + C.PORT + '/');
+  // TODO: Open the browser to that URL!
 }
 
 // We don't really care about connections or anything here — the point of
@@ -34,7 +34,6 @@ watcher(path => {
 app.use(express.static(C.APP_PATH));
 app.use(bodyParser.json());
 app.get('/', routesIndex);
-app.get('/cwd', routesCwd);
 app.post('/lint', routesLint);
 app.post('/open', routesOpen);
 app.get('/settings', routesLoadSettings);

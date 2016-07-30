@@ -19,13 +19,13 @@ function updateSettings_(store, settings) {
   });
 }
 
-function runLint_(store, folder) {
+function runLint_(store) {
   store.dispatch({
     type: 'UPDATE_LOADING',
     value: true
   })
 
-  backend.lint([folder])
+  backend.lint(['.'])
     .then(value => {
       store.dispatch({
         type: 'DISPLAY_LINT_RESULTS',
@@ -42,14 +42,13 @@ function App(props) {
   const {
     settings,
     logs,
-    folder,
     dispatch,
     loading,
     store,
     settingsVisible
   } = props;
   const {title, theme} = settings;
-  const runLint = runLint_.bind(null, store, folder);
+  const runLint = runLint_.bind(null, store);
   const updateSettings = updateSettings_.bind(null, store);
   const onShowSettings = () => { dispatch({type: 'SHOW_SETTINGS'}); };
   const onHideSettings = () => { dispatch({type: 'HIDE_SETTINGS'}); };

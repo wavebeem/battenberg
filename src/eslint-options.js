@@ -2,20 +2,11 @@
 const WARN = 'warn';
 const ERROR = 'error';
 
+// TODO: Option to write this to `.eslintrc.json`
 const options = {
-  // TODO: Actually set the envs correctly
   envs: ['browser', 'mocha', 'node', 'es6'],
-  useEslintrc: false,
   extends: 'eslint:recommended',
-  ignorePattern: [
-    'node_modules',
-    'bower_components',
-    'build',
-    'tmp',
-    'dist'
-  ],
-  // Eventually let's enable it to fix problems automatically! :D
-  // fix: true,
+  fix: true,
   rules: {
     semi: WARN,
     strict: [WARN, 'safe'],
@@ -37,4 +28,14 @@ const options = {
   }
 };
 
-module.exports = options;
+// TODO: Option to write this to `.eslintignore`
+const ignores = [
+  'node_modules',
+  'bower_components',
+  'build',
+  'tmp',
+  'dist'
+].join('\n') + '\n';
+
+exports.eslintrc = options;
+exports.eslintignore = ignores;
