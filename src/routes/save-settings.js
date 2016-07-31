@@ -7,7 +7,7 @@ function save(req, res) {
   const settings = req.body;
   const json = JSON.stringify(settings, null, 2);
   try {
-    fs.writeFileSync(C.FILENAME, json);
+    fs.writeFileSync(C.PROJECT_SETTINGS_FILE, json);
     res.send(true);
   } catch (err) {
     res.status(S.INTERNAL_ERROR).send(false);

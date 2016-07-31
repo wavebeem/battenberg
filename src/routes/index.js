@@ -1,9 +1,5 @@
-const path = require('path');
-
-const C = require('../constants');
-
-function index(req, res) {
-  res.sendFile(path.join(C.APP_PATH, 'index.html'));
-}
-
-module.exports = index;
+exports.Html = require('./html');
+exports.Lint = require('./lint');
+exports.Open = require('./open');
+exports.LoadSettings = require('./load-settings');
+exports.SaveSettings = require('./save-settings');

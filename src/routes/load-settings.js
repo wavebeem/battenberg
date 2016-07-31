@@ -5,7 +5,7 @@ const S = require('../http-statuses');
 
 function load(req, res) {
   try {
-    const text = fs.readFileSync(C.FILENAME, 'UTF-8');
+    const text = fs.readFileSync(C.PROJECT_SETTINGS_FILE, 'UTF-8');
     res.send(JSON.parse(text));
   } catch (err) {
     res.status(S.NOT_FOUND).send({
