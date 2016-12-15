@@ -1,3 +1,5 @@
+# NO LONGER IN DEVELOPMENT
+
 # Battenberg
 
 A friendly web GUI for ESLint.
